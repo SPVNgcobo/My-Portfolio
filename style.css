@@ -11,6 +11,11 @@ body {
     line-height: 1.6;
     background-color: #f4f4f4;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
 }
 
 /* Header */
@@ -18,12 +23,14 @@ header {
     background: #333;
     color: white;
     padding: 1rem;
+    width: 100%;
+    text-align: center;
 }
 
 header nav ul {
     display: flex;
-    list-style-type: none;
     justify-content: center;
+    list-style-type: none;
 }
 
 header nav ul li {
@@ -41,13 +48,15 @@ section {
     padding: 2rem;
     margin: 2rem 0;
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    text-align: center;
 }
 
 /* Home Section */
 #home {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #home h1 {
@@ -83,6 +92,7 @@ section {
 /* Projects Section */
 .project {
     margin-bottom: 2rem;
+    text-align: center;
 }
 
 .project a {
@@ -93,11 +103,14 @@ section {
 
 /* Contact Section */
 form input, form textarea {
-    width: 100%;
+    width: 80%;
     padding: 1rem;
     margin-bottom: 1rem;
     border-radius: 5px;
     border: 1px solid #ddd;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 form button {
@@ -107,6 +120,9 @@ form button {
     cursor: pointer;
     border-radius: 5px;
     border: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 form button:hover {
@@ -119,8 +135,8 @@ footer {
     background-color: #333;
     color: white;
     padding: 1rem;
-    position: fixed;
     width: 100%;
+    position: fixed;
     bottom: 0;
 }
 
