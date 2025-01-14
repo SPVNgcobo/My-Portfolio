@@ -54,6 +54,18 @@ nav ul li a:focus {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* About Section Styling */
+.about-img {
+    max-width: 200px;
+    border-radius: 50%;
+    margin-top: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-img:hover {
+    transform: scale(1.1);
+}
+
 /* Carousel Styling */
 .carousel {
     position: relative;
@@ -63,38 +75,34 @@ nav ul li a:focus {
 }
 
 .carousel-item {
-    display: none;
-    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, visibility 0s linear 0.5s;
 }
 
 .carousel-item.active {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.5s ease-in-out;
 }
 
 .carousel img {
     max-width: 100%;
     height: auto;
     border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
 }
 
 .carousel-control {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+    font-size: 2rem;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    font-size: 2rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    border-radius: 50%;
-    transition: background-color 0.3s, transform 0.2s;
-}
-
-.carousel-control:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    transform: scale(1.1);
 }
 
 .carousel-control.prev {
@@ -105,58 +113,71 @@ nav ul li a:focus {
     right: 10px;
 }
 
-/* Form Styling */
-form input, form textarea, form button {
-    width: 100%;
-    max-width: 400px;
-    margin: 0.5rem auto;
-    padding: 0.8rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: border-color 0.3s;
+/* Contact Section Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
-form input:focus, form textarea:focus {
-    border-color: #0066cc;
-    outline: none;
+form label {
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+form button {
+    background-color: #0066cc;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #004080;
 }
 
 /* Footer Styling */
 footer {
-    text-align: center;
-    background-color: #004080;
+    background: #333;
     color: white;
     padding: 1rem;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
 }
 
-.socials {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+footer .socials {
     margin-bottom: 1rem;
 }
 
-.socials a {
+footer .socials a {
     color: white;
+    margin: 0 10px;
     font-size: 1.5rem;
-    text-decoration: none;
     transition: color 0.3s;
 }
 
-.socials a:hover,
-.socials a:focus {
-    color: #00bcd4;
+footer .socials a:hover,
+footer .socials a:focus {
+    color: #ddd;
 }
 
-/* Responsive Design */
+/* Mobile Responsive */
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column;
         gap: 1rem;
-    }
-
-    .carousel img {
-        width: 90%;
     }
 }
