@@ -67,6 +67,7 @@ nav ul li a:focus {
 }
 
 /* Carousel Styling */
+/* Carousel Styling */
 .carousel {
     position: relative;
     display: flex;
@@ -87,8 +88,9 @@ nav ul li a:focus {
 }
 
 .carousel img {
-    max-width: 100%;
-    height: auto;
+    width: 100%;  /* Ensure the images take the full width */
+    height: 250px; /* Set a fixed height for all images */
+    object-fit: cover; /* Ensure the images maintain aspect ratio without distortion */
     border-radius: 10px;
     margin-bottom: 10px;
 }
@@ -112,6 +114,7 @@ nav ul li a:focus {
 .carousel-control.next {
     right: 10px;
 }
+
 
 /* Contact Section Styling */
 form {
