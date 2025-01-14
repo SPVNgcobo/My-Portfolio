@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Snethemba Ngcobo | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
     <!-- Header -->
     <header>
         <nav>
             <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -23,7 +24,7 @@
     <section id="home">
         <h1>Hello, I'm Snethemba Ngcobo</h1>
         <p>Software Developer | AI Programmer | Tech Enthusiast</p>
-        <img src="your-photo.jpg" alt="Your Photo">
+        <img src="your-photo.jpg" alt="Your Photo" class="profile-pic">
     </section>
 
     <!-- Skills Section -->
@@ -48,20 +49,25 @@
             <p>Description of project 1...</p>
             <a href="link-to-github">GitHub Repo</a>
         </div>
+        <div class="project">
+            <h3>Project 2</h3>
+            <p>Description of project 2...</p>
+            <a href="link-to-github">GitHub Repo</a>
+        </div>
         <!-- Add more projects -->
     </section>
 
     <!-- Contact Section -->
     <section id="contact">
         <h2>Contact Me</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
+        <form id="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit">Send Message</button>
         </form>
-        <p>Email: s.p.ngcobo@outlook.com</p>
-        <p>LinkedIn: <a href="www.linkedin.com/in/spngcobo">LinkedIn Profile</a></p>
+        <p>Email: <a href="mailto:s.p.ngcobo@outlook.com">s.p.ngcobo@outlook.com</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/spngcobo" target="_blank">LinkedIn Profile</a></p>
     </section>
 
     <!-- Footer -->
