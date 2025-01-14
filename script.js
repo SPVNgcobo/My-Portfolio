@@ -22,3 +22,17 @@ document.getElementById('contact-form').addEventListener('submit', function(e) {
         alert('Message Sent!');
     }
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+    let currentIndex = 0;
+    const projects = document.querySelectorAll('.project');
+    const carouselContainer = document.querySelector('.carousel-container');
+
+    setInterval(() => {
+        // Move to the next project
+        currentIndex = (currentIndex + 1) % projects.length;
+        const offset = -currentIndex * 100; // Move 100% for each project
+        carouselContainer.style.transform = `translateX(${offset}%)`;
+    }, 5000); // Change project every 5 seconds
+});
+
