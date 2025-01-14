@@ -92,9 +92,28 @@ section {
 }
 
 /* Projects Section */
+/* Projects Section */
+#projects {
+    background: linear-gradient(to right, #FF9800, #FF5722);
+    color: white;
+    padding: 2rem;
+}
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
 .project {
-    margin-bottom: 2rem;
+    flex: 0 0 100%;
     text-align: center;
+    padding: 1rem;
 }
 
 .project a {
@@ -102,6 +121,7 @@ section {
     text-decoration: none;
     font-weight: bold;
 }
+
 
 /* Contact Section */
 form input, form textarea {
