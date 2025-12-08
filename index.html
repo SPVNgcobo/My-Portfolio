@@ -1,256 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Snethemba Ngcobo — Portfolio</title>
-  <meta name="description" content="Portfolio — Snethemba Promise Ngcobo | IT Systems Trainer, Founder & Technologist" />
-  <style>
-    :root{
-      --bg:#071126;
-      --card:#081827;
-      --accent:#08BCD7;
-      --accent-2:#1A428A;
-      --muted:#9fb1c6;
-      --glass: rgba(255,255,255,0.03);
-      --radius:12px;
-      --maxw:1100px;
-      --mono: 'Segoe UI', Roboto, Arial, sans-serif;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:var(--mono);
-      background:linear-gradient(180deg,#021124 0%, #031827 60%);
-      color:#e6f5fb;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:32px 18px;
-      display:flex;
-      justify-content:center;
-    }
-    .wrap{width:100%;max-width:var(--maxw)}
-    header{
-      display:flex;
-      gap:18px;
-      align-items:center;
-      margin-bottom:22px;
-    }
-    .avatar{
-      width:112px;height:112px;border-radius:18px;
-      background:linear-gradient(135deg,var(--accent-2),var(--accent));
-      display:flex;align-items:center;justify-content:center;
-      font-weight:700;font-size:28px;color:white;
-      box-shadow:0 6px 20px rgba(2,10,30,0.6);
-      flex-shrink:0;
-    }
-    .hero{
-      flex:1;
-      padding:14px 18px;
-      border-radius:var(--radius);
-      background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      box-shadow:0 6px 26px rgba(2,10,30,0.6);
-      display:flex;flex-direction:column;gap:8px;
-    }
-    h1{font-size:20px;margin:0;letter-spacing:0.6px}
-    .title-sub{color:var(--accent);font-weight:600;font-size:13px}
-    .meta{display:flex;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:13px}
-    .actions{margin-top:10px;display:flex;gap:8px}
-    .btn{
-      background:transparent;border:1px solid rgba(255,255,255,0.06);
-      color:var(--accent);padding:8px 12px;border-radius:10px;text-decoration:none;font-weight:600;
-    }
-    .btn.primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#021124;border:none;box-shadow:0 8px 30px rgba(8,188,215,0.1)}
-    main{display:grid;grid-template-columns:1fr 380px;gap:20px;margin-top:18px}
-    .card{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.02)}
-    .section-title{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-    .section-title h2{margin:0;font-size:14px;color:var(--accent);font-weight:700}
-    p.lead{color:var(--muted);margin:0 0 12px 0;line-height:1.5}
-    /* left column */
-    .about .bio{white-space:pre-wrap;line-height:1.5;color:#dff6fb}
-    .skills{display:flex;flex-wrap:wrap;gap:8px}
-    .skill{background:var(--glass);padding:6px 10px;border-radius:999px;font-size:13px;color:var(--accent)}
-    .timeline{display:flex;flex-direction:column;gap:12px}
-    .job{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)}
-    .job h3{margin:0;font-size:15px}
-    .job .muted{color:var(--muted);font-size:13px}
-    .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-    .project{padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));min-height:100px}
-    .companies{display:flex;flex-direction:column;gap:8px}
-    .company{display:flex;gap:12px;align-items:center;padding:10px;border-radius:8px;background:rgba(255,255,255,0.01)}
-    .company .logo{width:44px;height:44px;border-radius:8px;display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,var(--accent-2),var(--accent));font-weight:700}
-    .contact{display:flex;flex-direction:column;gap:8px}
-    .muted{color:var(--muted)}
-    /* right column */
-    aside .card{position:sticky;top:32px}
-    .contact .row{display:flex;gap:8px;align-items:center}
-    .contact a{color:var(--accent);text-decoration:none;font-weight:600}
-    footer{margin-top:18px;color:var(--muted);font-size:13px;text-align:center}
-    /* responsive */
-    @media (max-width:980px){
-      main{grid-template-columns:1fr;min-width:0}
-      aside .card{position:static}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snethemba Promise Ngcobo | Software Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="wrap" role="main">
-    <header>
-   <img src="SN042.JPG">
-      <div class="hero">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
-          <div>
-            <h1>Snethemba Promise Ngcobo</h1>
-            <div class="title-sub">Founder | Technologist | Innovator — IT Systems Trainer (ENSafrica)</div>
-            <div class="meta" style="margin-top:8px">
-              <div class="muted">Johannesburg </div>
-              <div class="muted">27 years</div>
-              <div class="muted">Driver: Code 10</div>
+
+    <nav>
+        <div class="logo">SPN.</div>
+        
+        <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#ventures">Ventures</a></li>
+            <li><a href="#contact" class="btn-nav">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="hero">
+        <div class="hero-content">
+            <h1 class="glow-text">Snethemba Promise Ngcobo</h1>
+            <h2>Software Engineer | Systems Thinker | Tech Founder</h2>
+            <p>Building intelligent systems, AI-powered solutions, and digital experiences that solve real problems across Africa.</p>
+            <div class="cta-group">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#" class="btn btn-outline">Download CV</a>
             </div>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
-            <a class="btn" href="#contact">Contact</a>
-            <a class="btn primary" href="#projects">View Work</a>
-          </div>
         </div>
-        <div style="margin-top:8px">
-          <p class="lead">I’m an IT Systems Trainer and Computer Systems Engineering graduate with hands-on experience in network automation, technical support, and web development. I build practical automation solutions and digital products for SMEs and enterprise use.</p>
-        </div>
-      </div>
     </header>
 
-    <main>
-      <section>
-        <div class="card about">
-          <div class="section-title"><h2>About</h2></div>
-          <div class="bio">
-I’m originally from Hlabisa in KwaZulu-Natal. My passion for technology began in high school where I chose the physical sciences stream because it included Computer Applications Technology (CAT). I completed a National Diploma in Computer Systems Engineering (TUT) in 2025 and hold an MICT SETA FET Certificate in Technical Support (NQF4). I enjoy coding, building automation, and writing poetry in my spare time. I am the founder of Zaziza Technologies, AtHash Technologies, and DeltaPro.
-          </div>
+    <section id="about">
+        <div class="container">
+            <h3 class="section-title">Who I Am</h3>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I’m a Computer Systems Engineering graduate, IT Systems Trainer at ENSafrica, and the founder of three growing tech ventures. Coming from <strong>Hlabisa in KwaZulu-Natal</strong>, I’ve built my journey on resilience.</p>
+                    <p>I’m a fast learner. I once learned to solve a <strong>Rubik’s Cube in a week</strong>—a reminder that when I set my mind on something, I master it. I believe in building systems that go beyond “working”—systems that transform.</p>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <h4>Current Role</h4>
+                        <p>IT Systems Trainer Intern @ <strong>ENSafrica</strong></p>
+                        <small>Johannesburg | Oct 2025 - Present</small>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="card" style="margin-top:14px">
-          <div class="section-title"><h2>Core Skills</h2></div>
-          <div class="skills" aria-hidden="false">
-	    <div class="skill">HTML • CSS • JS • C++ • Python</div>
-            <div class="skill">Network Automation</div>
-            <div class="skill">MikroTik / Winbox</div>  
-            <div class="skill">Linux & Windows</div>
-            <div class="skill">Jira • Git • Embarcadero</div>
-            <div class="skill">Cybersecurity Basics</div>
-            <div class="skill">Cloud Fundamentals</div>
-            <div class="skill">Technical Training</div>
-          </div>
+    <section id="skills">
+        <div class="container">
+            <h3 class="section-title">Technical Arsenal</h3>
+            <div class="skills-wrapper">
+                <div class="skill-category">
+                    <h4>Core Tech</h4>
+                    <ul>
+                        <li>Python, Java, C++</li>
+                        <li>HTML, CSS, JS</li>
+                        <li>SQL & Power BI</li>
+                        <li>Git, Jira, M365 Admin</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Engineering</h4>
+                    <ul>
+                        <li>System Design</li>
+                        <li>Automation Scripting</li>
+                        <li>Testing & Maintenance</li>
+                        <li>Documentation</li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h4>Soft Skills</h4>
+                    <ul>
+                        <li>Rapid Learning</li>
+                        <li>Critical Thinking</li>
+                        <li>Client Interactions</li>
+                        <li>Adaptability</li>
+                    </ul>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="card" style="margin-top:14px">
-          <div class="section-title"><h2>Experience</h2></div>
-          <div class="timeline">
-            <div class="job">
-              <h3>IT Systems Trainer Intern — ENSafrica</h3>
-              <div class="muted">Oct 2025 – Present | Johannesburg</div>
-              <p class="muted" style="margin-top:8px">Delivering IT systems training, creating adoption materials, supporting IT service delivery, and helping with onboarding and documentation across the firm.</p>
+    <section id="experience">
+        <div class="container">
+            <h3 class="section-title">Professional Journey</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="date">2025 - Present</div>
+                    <div class="content">
+                        <h4>IT Systems Trainer</h4>
+                        <h5>ENSafrica</h5>
+                        <p>Supporting enterprise systems training, user access governance, and IT service delivery within Africa’s largest law firm.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">2024 - 2025</div>
+                    <div class="content">
+                        <h4>IT Intern</h4>
+                        <h5>Adnexus Celerity Networks</h5>
+                        <p>MikroTik network automation, Fibre installation, and incident management via Jira.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="date">2023 - 2024</div>
+                    <div class="content">
+                        <h4>Technical Support Learner</h4>
+                        <h5>Nsingweni Consultants</h5>
+                        <p>IT hardware support, OS installation, and troubleshooting.</p>
+                    </div>
+                </div>
             </div>
-
-            <div class="job">
-              <h3>IT Intern — Adnexus Celerity Networks</h3>
-              <div class="muted">Aug 2024 – Jan 2025</div>
-              <p class="muted" style="margin-top:8px">Installed MikroTik routers & ONTs, automated provisioning and backups, monitored networks (Winbox, PuTTY), logged issues in Jira, and supported client fibre installs.</p>
-            </div>
-
-            <div class="job">
-              <h3>Technical Support Learner — Nsingweni Consultants</h3>
-              <div class="muted">Jun 2023 – May 2024</div>
-              <p class="muted" style="margin-top:8px">Provided technical support, deployed OS and apps, and completed a SETA-accredited technical support learnership (NQF4).</p>
-            </div>
-          </div>
         </div>
+    </section>
 
-        <div class="card" id="projects" style="margin-top:14px">
-          <div class="section-title"><h2>Projects</h2></div>
-          <div class="projects">
-            <div class="project">
-              <strong>Network Automation</strong>
-              <div class="muted" style="margin-top:6px">Automated MikroTik provisioning, monitoring, and backups — improved operational efficiency and reduced manual tasks.</div>
+    <section id="projects">
+        <div class="container">
+            <h3 class="section-title">Selected Projects</h3>
+            <div class="project-grid">
+                <div class="card">
+                    <h4>Network Automation System</h4>
+                    <p>Automated provisioning, backups, and monitoring for MikroTik, reducing manual work by 60%.</p>
+                </div>
+                <div class="card">
+                    <h4>Walking Stick for the Blind</h4>
+                    <p>Sensor-based assistive tech device designed to increase safety and independence.</p>
+                </div>
+                <div class="card">
+                    <h4>Branded SME Automation</h4>
+                    <p>Created proposal templates, certificates, agreements, and onboarding packs.</p>
+                </div>
             </div>
-            <div class="project">
-              <strong>E-commerce Website</strong>
-              <div class="muted" style="margin-top:6px">Front-end e-commerce site built with HTML, CSS & JavaScript. Hosted on GitHub Pages (spvngcobo.github.io).</div>
-            </div>
-            <div class="project">
-              <strong>Design Project (TUT)</strong>
-              <strong>Walking Stick for the Blind</strong>
-              <div class="muted" style="margin-top:6px">Assistive tech prototype using sensors to support visually impaired users.</div>
-              <div class="muted" style="margin-top:6px">Design Project III – scored 67 (completed as part of National Diploma).</div>
-            </div>
-          </div>
         </div>
+    </section>
 
-      </section>
-
-      <aside>
-        <div class="card">
-          <div class="section-title"><h2>Contact</h2></div>
-          <div class="contact" id="contact">
-            <div class="row"><strong>Phone:</strong>&nbsp;<a href="tel:+27820569497">082 056 9497</a> / <a href="tel:+27834774019">083 477 4019</a></div>
-            <div class="row"><strong>Email:</strong>&nbsp;<a href="mailto:s.p.ngcobo@outlook.com">s.p.ngcobo@outlook.com</a></div>
-            <div class="row"><strong>LinkedIn:</strong>&nbsp;<a href="https://www.linkedin.com/in/spngcobo" target="_blank" rel="noopener">linkedin.com/in/spngcobo</a></div>
-            <div class="row"><strong>Portfolio:</strong>&nbsp;<a href="https://spvngcobo.github.io" target="_blank" rel="noopener">spvngcobo.github.io</a></div>
-            <div class="row"><strong>Location:</strong>&nbsp;<span class="muted">Enkanjini Area, Hlabisa (coords: -28.1548, 31.8631)</span></div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:14px">
-          <div class="section-title"><h2>Education</h2></div>
-          <div>
-            <div style="font-weight:700">Tshwane University of Technology — National Diploma: Computer Systems</div>
-            <div class="muted">Completion effective 01 Mar 2025 (completion letter issued 05 Jun 2025). Graduation: March 2026. Certificate withheld due to outstanding fees.</div>
-            <div style="margin-top:8px;font-weight:700">MICT SETA — FET Certificate: Technical Support (NQF4)</div>
-            <div class="muted">Issued: 13 Nov 2024</div>
-          </div>
-        </div>
-
-        <div class="card" style="margin-top:14px">
-          <div class="section-title"><h2>Companies</h2></div>
-          <div class="companies">
-            <div class="company">
-              <div class="logo">Z</div>
-              <div>
-                <div style="font-weight:700">Zaziza Technologies</div>
-                <div class="muted">SME digitization, web & app dev, automation.</div>
-              </div>
+    <section id="ventures">
+        <div class="container">
+            <h3 class="section-title">My Ventures</h3>
+            <div class="ventures-grid">
+                <div class="venture-card glow-cyan">
+                    <h4>Zaziza Technologies</h4>
+                    <p>Digital Solutions for Small Businesses. Web development, branding, and business automation.</p>
+                </div>
+                <div class="venture-card glow-navy">
+                    <h4>AtHash Technologies</h4>
+                    <p>Enterprise Automation & Secure Workflows. AI-powered content processing and permissioning systems.</p>
+                </div>
+                <div class="venture-card glow-cyan">
+                    <h4>DeltaPro</h4>
+                    <p>Predictive AI Talent Intelligence. AI-driven skills scoring and workforce planning.</p>
+                </div>
             </div>
-
-            <div class="company">
-              <div class="logo">@</div>
-              <div>
-                <div style="font-weight:700">AtHash Technologies</div>
-                <div class="muted">B2B SaaS — secure automation & compliance-first.</div>
-              </div>
-            </div>
-
-            <div class="company">
-              <div class="logo">Δ</div>
-              <div>
-                <div style="font-weight:700">DeltaPro</div>
-                <div class="muted">AI predictive talent engine for enterprises.</div>
-              </div>
-            </div>
-          </div>
         </div>
+    </section>
 
-        <div class="card" style="margin-top:14px">
-          <div class="section-title"><h2>Quick CV</h2></div>
-          <div class="muted" style="margin-bottom:8px">You can request a downloadable CV or tailored job application (ATS-friendly).</div>
-          <a class="btn primary" href="mailto:s.p.ngcobo@outlook.com?subject=CV%20Request">Request CV</a>
+    <section id="education">
+        <div class="container">
+            <h3 class="section-title">Education</h3>
+            <div class="edu-block">
+                <h4>National Diploma: Computer Systems Engineering</h4>
+                <p>Tshwane University of Technology (2025) | Graduating March 2026</p>
+                <small>Programming, Logic Design, Electronics, Systems Analysis</small>
+            </div>
         </div>
+    </section>
 
-      </aside>
-    </main>
-
-    <footer>
-      © Snethemba Promise Ngcobo — Zaziza Technologies • AtHash Technologies • DeltaPro — Built for modern, secure automation.
+    <footer id="contact">
+        <div class="container">
+            <h2>Let's Build The Future</h2>
+            <p><strong>Portfolio:</strong> spvngcobo.github.io</p>
+            <div class="social-links">
+                <a href="mailto:s.p.ngcobo@outlook.com">Email</a>
+                <a href="https://linkedin.com/in/spngcobo">LinkedIn</a>
+                <a href="tel:+27820569497">082 056 9497</a>
+            </div>
+            <hr>
+            <p class="signature">"Built from Hlabisa. Designed for Africa. Engineering for the world."</p>
+            <p class="copyright">© 2025 Snethemba Ngcobo. All Rights Reserved.</p>
+        </div>
     </footer>
-  </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
