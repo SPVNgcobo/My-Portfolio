@@ -1,196 +1,139 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snethemba Promise Ngcobo | Software Engineer</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-</head>
-<body>
+// 1. Typewriter Effect
+const textElement = document.getElementById('typing-text');
+const phrases = ["Systems Thinker", "Innovator", "Tech Founder"];
+let phraseIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-    <nav>
-        <div class="logo">SPN.</div>
+function type() {
+    const currentPhrase = phrases[phraseIndex];
+    
+    if (isDeleting) {
+        textElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+    } else {
+        textElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+    }
+
+    if (!isDeleting && charIndex === currentPhrase.length) {
+        isDeleting = true;
+        setTimeout(type, 2000); // Wait before deleting
+    } else if (isDeleting && charIndex === 0) {
+        isDeleting = false;
+        phraseIndex = (phraseIndex + 1) % phrases.length;
+        setTimeout(type, 500);
+    } else {
+        setTimeout(type, isDeleting ? 50 : 100);
+    }
+}
+document.addEventListener('DOMContentLoaded', type);
+
+// 2. Scroll Reveal Animation
+const revealElements = document.querySelectorAll('.reveal');
+
+const revealOnScroll = () => {
+    const windowHeight = window.innerHeight;
+    const elementVisible = 150;
+
+    revealElements.forEach((reveal) => {
+        const elementTop = reveal.getBoundingClientRect().top;
+        if (elementTop < windowHeight - elementVisible) {
+            reveal.classList.add('active');
+        }
+    });
+};
+window.addEventListener('scroll', revealOnScroll);
+
+// 3. Canvas Particle System (The "Network" Effect)
+const canvas = document.getElementById('canvas-system');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let particlesArray;
+
+// Handle Resize
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    init();
+});
+
+class Particle {
+    constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.size = Math.random() * 2 + 1; // Size of node
+        this.speedX = (Math.random() * 1.5) - 0.75;
+        this.speedY = (Math.random() * 1.5) - 0.75;
+    }
+    update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
+        if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
+    }
+    draw() {
+        ctx.fillStyle = '#08BCD7'; // Cyan nodes
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
+function init() {
+    particlesArray = [];
+    const numberOfParticles = (canvas.width * canvas.height) / 9000;
+    for (let i = 0; i < numberOfParticles; i++) {
+        particlesArray.push(new Particle());
+    }
+}
+
+function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < particlesArray.length; i++) {
+        particlesArray[i].update();
+        particlesArray[i].draw();
         
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
+        // Draw connections
+        for (let j = i; j < particlesArray.length; j++) {
+            const dx = particlesArray[i].x - particlesArray[j].x;
+            const dy = particlesArray[i].y - particlesArray[j].y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            
+            if (distance < 100) {
+                ctx.beginPath();
+                ctx.strokeStyle = `rgba(8, 188, 215, ${1 - distance/100})`;
+                ctx.lineWidth = 1;
+                ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                ctx.stroke();
+            }
+        }
+    }
+    requestAnimationFrame(animate);
+}
 
-        <ul class="nav-links">
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
-            <li><a href="#ventures">Ventures</a></li>
-            <li><a href="#contact" class="btn-nav">Contact</a></li>
-        </ul>
-    </nav>
+init();
+animate();
 
-    <header id="hero">
-        <div class="hero-content">
-            <h1 class="glow-text">Snethemba Promise Ngcobo</h1>
-            <h2>Software Engineer | Systems Thinker | Tech Founder</h2>
-            <p>Building intelligent systems, AI-powered solutions, and digital experiences that solve real problems across Africa.</p>
-            <div class="cta-group">
-                <a href="#projects" class="btn btn-primary">View My Work</a>
-                <a href="#" class="btn btn-outline">Download CV</a>
-            </div>
-        </div>
-    </header>
-
-    <section id="about">
-        <div class="container">
-            <h3 class="section-title">Who I Am</h3>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>I’m a Computer Systems Engineering graduate, IT Systems Trainer at ENSafrica, and the founder of three growing tech ventures. Coming from <strong>Hlabisa in KwaZulu-Natal</strong>, I’ve built my journey on resilience.</p>
-                    <p>I’m a fast learner. I once learned to solve a <strong>Rubik’s Cube in a week</strong>—a reminder that when I set my mind on something, I master it. I believe in building systems that go beyond “working”—systems that transform.</p>
-                </div>
-                <div class="about-stats">
-                    <div class="stat-card">
-                        <h4>Current Role</h4>
-                        <p>IT Systems Trainer Intern @ <strong>ENSafrica</strong></p>
-                        <small>Johannesburg | Oct 2025 - Present</small>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="skills">
-        <div class="container">
-            <h3 class="section-title">Technical Arsenal</h3>
-            <div class="skills-wrapper">
-                <div class="skill-category">
-                    <h4>Core Tech</h4>
-                    <ul>
-                        <li>Python, Java, C++</li>
-                        <li>HTML, CSS, JS</li>
-                        <li>SQL & Power BI</li>
-                        <li>Git, Jira, M365 Admin</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Engineering</h4>
-                    <ul>
-                        <li>System Design</li>
-                        <li>Automation Scripting</li>
-                        <li>Testing & Maintenance</li>
-                        <li>Documentation</li>
-                    </ul>
-                </div>
-                <div class="skill-category">
-                    <h4>Soft Skills</h4>
-                    <ul>
-                        <li>Rapid Learning</li>
-                        <li>Critical Thinking</li>
-                        <li>Client Interactions</li>
-                        <li>Adaptability</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <div class="container">
-            <h3 class="section-title">Professional Journey</h3>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="date">2025 - Present</div>
-                    <div class="content">
-                        <h4>IT Systems Trainer</h4>
-                        <h5>ENSafrica</h5>
-                        <p>Supporting enterprise systems training, user access governance, and IT service delivery within Africa’s largest law firm.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="date">2024 - 2025</div>
-                    <div class="content">
-                        <h4>IT Intern</h4>
-                        <h5>Adnexus Celerity Networks</h5>
-                        <p>MikroTik network automation, Fibre installation, and incident management via Jira.</p>
-                    </div>
-                </div>
-                <div class="timeline-item">
-                    <div class="date">2023 - 2024</div>
-                    <div class="content">
-                        <h4>Technical Support Learner</h4>
-                        <h5>Nsingweni Consultants</h5>
-                        <p>IT hardware support, OS installation, and troubleshooting.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="container">
-            <h3 class="section-title">Selected Projects</h3>
-            <div class="project-grid">
-                <div class="card">
-                    <h4>Network Automation System</h4>
-                    <p>Automated provisioning, backups, and monitoring for MikroTik, reducing manual work by 60%.</p>
-                </div>
-                <div class="card">
-                    <h4>Walking Stick for the Blind</h4>
-                    <p>Sensor-based assistive tech device designed to increase safety and independence.</p>
-                </div>
-                <div class="card">
-                    <h4>Branded SME Automation</h4>
-                    <p>Created proposal templates, certificates, agreements, and onboarding packs.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="ventures">
-        <div class="container">
-            <h3 class="section-title">My Ventures</h3>
-            <div class="ventures-grid">
-                <div class="venture-card glow-cyan">
-                    <h4>Zaziza Technologies</h4>
-                    <p>Digital Solutions for Small Businesses. Web development, branding, and business automation.</p>
-                </div>
-                <div class="venture-card glow-navy">
-                    <h4>AtHash Technologies</h4>
-                    <p>Enterprise Automation & Secure Workflows. AI-powered content processing and permissioning systems.</p>
-                </div>
-                <div class="venture-card glow-cyan">
-                    <h4>DeltaPro</h4>
-                    <p>Predictive AI Talent Intelligence. AI-driven skills scoring and workforce planning.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="education">
-        <div class="container">
-            <h3 class="section-title">Education</h3>
-            <div class="edu-block">
-                <h4>National Diploma: Computer Systems Engineering</h4>
-                <p>Tshwane University of Technology (2025) | Graduating March 2026</p>
-                <small>Programming, Logic Design, Electronics, Systems Analysis</small>
-            </div>
-        </div>
-    </section>
-
-    <footer id="contact">
-        <div class="container">
-            <h2>Let's Build The Future</h2>
-            <p><strong>Portfolio:</strong> spvngcobo.github.io</p>
-            <div class="social-links">
-                <a href="mailto:s.p.ngcobo@outlook.com">Email</a>
-                <a href="https://linkedin.com/in/spngcobo">LinkedIn</a>
-                <a href="tel:+27820569497">082 056 9497</a>
-            </div>
-            <hr>
-            <p class="signature">"Built from Hlabisa. Designed for Africa. Engineering for the world."</p>
-            <p class="copyright">© 2025 Snethemba Ngcobo. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+// 4. Hamburger Menu Logic
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-links");
+hamburger.addEventListener("click", () => {
+    navMenu.classList.toggle("active");
+    // Simple inline style toggle for visibility in this snippet
+    if(navMenu.style.display === "flex"){
+        navMenu.style.display = "none";
+    } else {
+        navMenu.style.display = "flex";
+        navMenu.style.flexDirection = "column";
+        navMenu.style.position = "absolute";
+        navMenu.style.top = "80px";
+        navMenu.style.right = "0";
+        navMenu.style.background = "#05080d";
+        navMenu.style.width = "100%";
+        navMenu.style.padding = "20px";
+    }
+});
